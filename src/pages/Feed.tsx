@@ -8,7 +8,7 @@ function Feed() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   // pull the ig-clone backend photos from localhost
   useEffect(() => {
-    fetch("http://localhost:5001/photos")
+    fetch("http://localhost:5501/photos")
       .then((res) => res.json())
       .then((data: Photo[]) => {
         // console.log(data)
@@ -20,7 +20,7 @@ function Feed() {
       <h1>the feed</h1>
       <div>
         {photos.map((photo: Photo) => {
-          return<PhotoView key={photo._id} photo={photo} />
+          return<PhotoView key={photo._id} photo={photo} setPhotos={setPhotos}/>
           return (
             <div>
               <img src={photo.photoUrl} />
